@@ -1,0 +1,251 @@
+<div class="contest_bg ranking_contest">
+    <div class="contest">
+        <div class="contest_info ranking superSearch">
+            <div class="contest_title">
+                <h1>超级搜索</h1>
+            </div>
+            <ul class="tab_box">
+                <li>
+                    <div class="client_tab">
+                        <strong>搜索筛选</strong>
+                        <div ng-click ='tab($event)'>
+                            <a class="active" data-val="1">一手</a>
+                            <a data-val="2">二手</a>
+                        </div>
+                    </div>
+                   <ul class="superSearch_if" ng-click="superSFn($event)">
+                       <li class="ss_title">
+                           已选标签   >
+                           <em ng-cloak data-key="build_type_id">建筑类型:{{searchParams.build_type}} <i></i></em>
+                           <em ng-cloak data-key="house_type_id">房屋类型:{{searchParams.house_type}} <i></i></em>
+                           <em ng-cloak data-key="district_id">{{searchParams.district}} {{searchParams.plate}}<i></i></em>
+                           <em ng-cloak data-key="loop_id">{{searchParams.loop}} <i></i></em>
+                           <em ng-cloak data-key="selling_rate">销售率:{{searchParams.selling_rate}} <i></i></em>
+                           <em ng-cloak data-key="volume_rate_id">容积率:{{searchParams.volume_rate}} <i></i></em>
+                           <em ng-cloak data-key="price_type_id">单价段:
+                                  {{searchParams.price}} 
+                               <i></i>
+                           </em>
+                           <em ng-cloak data-key="total_price_type_id">总价段: 
+                                   {{searchParams.total_price}} 
+                               <i></i>
+                           </em>
+                           <em ng-cloak data-key="area_type_id">面积段:
+                           	{{searchParams.area_type}} <i></i></em>
+                           <em ng-cloak data-key="kp_to_date">开盘时间:
+                           	
+                                 {{searchParams.kp_date}} 
+                                  
+                               <i></i>
+                           </em>
+                           <em ng-cloak data-key="cj_to_date">成交时间:
+                                 {{searchParams.cj_date}} 
+                               <i></i>
+                           </em>
+                           <em ng-cloak data-key='house_name'>项目:
+                           	{{searchParams.house_name}}
+                           </em>
+                       </li>
+                       <li data-key="build_type_id">
+                           <strong>建筑类型:</strong>
+                           <span data-val="1">低层</span>
+                           <span data-val="2">多层</span>
+                           <span data-val="3">小高层</span>
+                           <span data-val="4">高层</span>
+                           <span data-val="5">超高层</span>
+                       </li>
+                       <li data-key="house_type_id">
+                           <strong>类型:</strong>
+                           <span data-val="1">住宅</span>
+                           <span data-val="2">公寓</span>
+                           <span data-val="3">别墅</span>
+                           <span data-val="4">独栋</span>
+                           <span data-val="5">联排</span>
+                           <span data-val="6">双拼</span>
+                           <span data-val="7">商业</span>
+                           <span data-val="8">办公</span>
+                           <span data-val="9">酒店式公寓</span>
+                       </li>
+                       <li data-key="district_id">
+                           <strong>区域:</strong>
+                           <dl class="ss_area">
+                               <dd ng-repeat="i in areaList" ng-bind="i.district_name" data-id="{{i.district_id}}"></dd>
+                           </dl>
+                           <dl class="ss_plate" ng-show="isSSPlate">
+
+                           </dl>
+                       </li>
+                       <li data-key="loop_id">
+                           <strong>环线:</strong>
+                           <span data-val="1">内环以内</span>
+                           <span data-val="2">内中环间</span>
+                           <span data-val="3">中外环间</span>
+                           <span data-val="4">外环以外</span>
+                       </li>
+                       <li ng-show="dataParams.old" data-key="selling_rate">
+                           <strong>销售率:</strong>
+                           <span data-val="1">≤10%</span>
+                           <span data-val="2">11%-20%</span>
+                           <span data-val="3">21%-30%</span>
+                           <span data-val="4">31%-40%</span>
+                           <span data-val="5">41%-50%</span>
+                           <span data-val="6">51%-60%</span>
+                           <span data-val="7">61%-70%</span>
+                           <span data-val="8">71%-80%</span>
+                           <span data-val="9">81%-90%</span>
+                           <span data-val="10">91%-100%</span>
+                       </li>
+                       <li ng-show="dataParams.old" data-key="volume_rate_id">
+                           <strong>容积率:</strong>
+                           <span data-val="1">≤0.3</span>
+                           <span data-val="2">0.4-0.6</span>
+                           <span data-val="3">0.7-1.0</span>
+                           <span data-val="4">1.1-1.4</span>
+                           <span data-val="5">1.5-1.8</span>
+                           <span data-val="6">1.9-2.5</span>
+                           <span data-val="7">2.6-3.0</span>
+                           <span data-val="8">＞3.0</span>
+                       </li>
+                       <li data-key="price_type_id">
+                           <strong>单价段:</strong>
+                           <span data-val="1">≤20000元</span>
+                           <span data-val="2">20000-30000元</span>
+                           <span data-val="3">30000-40000元</span>
+                           <span data-val="4">40000-50000元</span>
+                           <span data-val="5">＞50000元</span>
+                           <span data-val="6" class="custom">
+                               <input type="number"  ng-model="dataParams.price1" /> -
+                               <input type="number"  ng-model="dataParams.price2" />元
+                           </span>
+                       </li>
+                       <li data-key="total_price_type_id">
+                           <strong>总价段:</strong>
+                           <span data-val="1">≤300万元</span>
+                           <span data-val="2">300-500元万</span>
+                           <span data-val="3">500-800万元</span>
+                           <span data-val="4">800-1500万元</span>
+                           <span data-val="5">＞15000万元</span>
+                           <span data-val="6" class="custom">
+                               <input type="number" ng-model="dataParams.total_price1" /> -
+                               <input type="number"  ng-model="dataParams.total_price2" />万元
+                           </span>
+                       </li>
+                       <li data-key="area_type_id">
+                           <strong>面积段:</strong>
+                           <span data-val="1">≤65㎡</span>
+                           <span data-val="2">66-80㎡</span>
+                           <span data-val="3">81-100㎡</span>
+                           <span data-val="4">101-125㎡</span>
+                           <span data-val="5">126-150㎡</span>
+                           <span data-val="6">151-180㎡</span>
+                           <span data-val="7">181-220㎡</span>
+                           <span data-val="8">221-300㎡</span>
+                           <span data-val="9">＞300㎡</span>
+                       </li>
+                       <li ng-show="dataParams.old" data-key="kp_to_date">
+                           <strong>开盘时间:</strong>
+                           <span data-val="5">本周</span>
+                           <span data-val="1">本月</span>
+                           <span data-val="2">3个月</span>
+                           <span data-val="3">6个月</span>
+                           <span data-val="4" class="custom2">
+                               <input type="date" ng-model="dataParams.kp_time1" /> -
+                               <input type="date" ng-model="dataParams.kp_time2" />
+                           </span>
+                       </li>
+                       <li data-key="cj_to_date">
+                           <strong>成交时间:</strong>
+                           <span data-val="0">本日</span>
+                           <span data-val="5">本周</span>
+                           <span data-val="1">本月</span>
+                           <span data-val="2">3个月</span>
+                           <span data-val="3">6个月</span>
+                           <span data-val="4" class="custom2">
+                               <input type="date" ng-model="dataParams.cj_time1" /> -
+                               <input type="date"  ng-model="dataParams.cj_time2" />
+                           </span>
+                       </li>
+                         <li data-key="house_name">
+                           <strong>项目名:</strong>
+                              <span data-val="6" >
+                               <input type="text" ng-model="dataParams.house_name" /> 
+                            </span>
+                       </li>
+                   </ul>
+                    <p class="ss_p">
+                        <a ng-click="postDataFn($event)" data-id="ss_searchData">确认</a>
+                    </p>
+                </li>
+
+                <li class="marginTop" id="ss_searchData">
+                    <h1 class="tab_h1 ranking_h1">
+                        成交结果
+                        <a ng-show="false"  ng-click="postExcel_super_search($event)">下载</a>
+                    </h1>
+
+
+                    <div class="ss_data_tit">
+                       <p> 成交套数：<span ng-cloak>{{SScount}}套</span></p>
+                    </div>
+
+
+                    <table class="getLand_table getLand_table3 ranking_table">
+                        <thead ng-click="oderFn($event)">
+                        <tr>
+                            <td>序号</td>
+                            <td>项目名称</td>
+                            <td>
+                                区域
+                            </td>
+                            <td>
+                                地址
+                            </td>
+                            <td>面积
+                                <p>(㎡）</p>
+                            </td>
+                            <td>
+                                类型
+                            </td>
+                            <td>
+                                房型
+                            </td>
+                            <td>
+                                建筑类型
+                            </td>
+                            <td>
+                                单价
+                                <p>（元/㎡）</p>
+                            </td>
+                            <td>
+                                总价
+                                <p>（万/套）</p>
+                            </td>
+
+                            <td>时间</td>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="data in ssData">
+                            <td width="80" ng-bind="data.order_num"></td>
+                            <td width="160" ng-bind="data.house_name"></td>
+                            <td ng-bind="data.district_name"></td>
+                            <td width="200" ng-bind="data.house_address"></td>
+                            <td ng-bind="data.area"></td>
+                            <td ng-bind="data.house_type"></td>
+                            <td ng-bind="data.room_type"></td>
+                            <td ng-bind="data.deal_build_type"></td>
+                            <td ng-bind="data.price"></td>
+                            <td ng-bind="data.total_price"></td>
+                            <td ng-bind="data.cj_date"></td>
+                        </tr>
+                    </table>
+
+                    <tm-pagination ng-if="dataParams.page" conf="paginationConf"></tm-pagination>
+
+
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+</div>

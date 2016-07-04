@@ -1,0 +1,36 @@
+<style>
+    html,body{ height: 100%}
+    body{ position: relative;}
+</style>
+<div class="pst">
+    <div class="pst_child">
+        <div class="index_search">
+            <div class="logo_big inx_logo"></div>
+            <div class="search">
+                <form>
+                    <div class="search_select {{search_type}}" ng-click="fnSet.toggleMenu()">
+                        <span ng-cloak>{{name}}</span>
+                        <i></i>
+                        <ul ng-show='var.show'> 
+                            <li   ui-sref="app.search.actually"><a class="search_type_1">竞品</a></li>
+                            <li   ui-sref="app.search.ranking"><a class="search_type_2">排行</a></li>
+                            <li   ui-sref="app.search.getLand"><a class="search_type_3">拿地</a></li>
+                            <li   ui-sref="app.search.design"><a class="search_type_4">设计</a></li>
+                            <li   ui-sref="app.search.marketing"><a class="search_type_5">营销</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="search_input">
+                        <input type="text" placeholder="{{var.default}}" ng-disabled="isInputDisabled">
+                        <input type="submit" value=" " ng-class="{true: 'active'}[isActive]"  ng-click="isDisabled == 1 ? searchFn($event) : 0">
+                    </div>
+                    <a ui-sref="page.superSearch">超级搜索</a>
+                </form>
+
+                <div class="" ui-view></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

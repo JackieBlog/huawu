@@ -1,0 +1,177 @@
+<div class="contest_bg">
+    <div class="contest">
+        <div class="contest_info">
+            <div class="contest_title" ng-click="fnSet.attention($event)">
+                <h1 ng-bind="getLandData.block_name"></h1>
+                <a  class="attention" data-id="{{blockId}}" data-type="2">关注</a>
+            </div>
+
+        <!--
+        	作者：spirithappy2@hotmail.com
+        	时间：2016-03-21
+        	描述：
+        	<div class="video" ng-if="video"> 
+            </div>
+        -->    
+
+            <div class="base_info getLand_base_info" id="base">
+                <h1 class="tab_h1">
+                    基本数据<span ng-cloak>({{getLandData.jy_state}})</span>
+                    <a href="http://www.88house.com.cn/test/pc_hwdeal_interface/excel_block_info/{{blockId}}" target="_blank">下载</a>
+                </h1>
+                <table class="table_sty getLand_td">
+                    <tr>
+                        <td width="90">四至范围</td>
+                        <td ng-bind="getLandData.range"></td>
+                        <td width="90">发布公告日期</td>
+                        <td ng-bind="getLandData.release_notice_time"></td>
+                    </tr><tr>
+                        <td>出让人</td>
+                        <td ng-bind="getLandData.transferor"></td>
+                        <td>发放出让文件</td>
+                        <td ng-cloak>{{getLandData.sell_file_att_stime}}到{{getLandData.sell_file_att_etime}}</td>
+                    </tr><tr>
+                        <td>出让方式</td>
+                        <td ng-bind="getLandData.transfer_way"></td>
+                        <td>提问</td>
+                        <td ng-bind="getLandData.question_end_time"></td>
+                    </tr><tr>
+                        <td>所属区域</td>
+                        <td ng-bind="getLandData.district_name"></td>
+                        <td>发布答疑</td>
+                        <td ng-bind="getLandData.release_ask_time"></td>
+                    </tr><tr>
+                        <td>容积率</td>
+                        <td ng-bind="getLandData.volume_rate"></td>
+                        <td>接收竞买申请</td>
+                        <td ng-cloak>{{getLandData.accept_bid_apply_stime}} 到 {{getLandData.accept_bid_apply_etime}}</td>
+                    </tr><tr>
+                        <td>用途</td>
+                        <td ng-bind="getLandData.block_use"></td>
+                        <td>保证金到账</td>
+                        <td ng-bind="getLandData.deposit_to_account_etime"></td>
+                    </tr><tr>
+                        <td>出让面积</td>
+                        <td ng-bind="getLandData.area"></td>
+                        <td>挂牌交易活动</td>
+                        <td>{{listed_quote_stime}} 到 {{listed_quote_etime}}</td>
+                    </tr><tr>
+                        <td>年限</td>
+                        <td ng-bind="getLandData.block_year"></td>
+                        <td>竞得价</td>
+                        <td ng-bind="getLandData.jy_total_price"></td>
+                    </tr><tr>
+                        <td>起始价</td>
+                        <td ng-bind="getLandData.start_price"></td>
+                        <td>竞得时间</td>
+                        <td ng-bind="getLandData.jy_time"></td>
+                    </tr><tr>
+                        <td>溢价率</td>
+                        <td ng-bind="getLandData.premium_rate"></td>
+                        <td>竞得人</td>
+                        <td ng-bind="getLandData.jy_person"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <ul class="tab_box" id="data">
+                <li>
+                    <h1 class="tab_h1">
+                        所在板块数据 
+                    </h1>
+
+
+                    <ul class="axis getLand_axis" ng-click="selectFn($event)">
+                        <li data-val="1" class="active">本月</li>
+                        <li data-val="2">3个月</li>
+                        <li data-val="3">6个月</li>
+                        <li data-val="4">自定义</li>
+                    </ul>
+                    <div class="dateLayer" ng-show="dateLayer" >
+                        <input type="date" name="user_date" ng-model="date.begin" /> -
+                        <input type="date" name="user_date" ng-model="date.ends" />
+                        <input type="submit" ng-click="dateFn()" class="dataBtn" />
+                    </div>
+
+                    <h2 class="h2_tit" ng-cloak>所在版块：{{getLandData.plate_name}}</h2>
+
+                    <table class="getLand_table">
+                        <thead>
+                            <tr>
+                                <td>已出让面积</td>
+                                <td>已出让金额</td>
+                                <td>已推出地块</td>
+                                <td>已出让地块</td>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td ng-bind="getLandData.sum_sell_area"></td>
+                            <td ng-bind="getInfoPlateData.sum_sell_price"></td>
+                            <td ng-bind="getInfoPlateData.all_count"></td>
+                            <td ng-bind="getInfoPlateData.sell_count"></td>
+                        </tr>
+                    </table>
+
+                    <h3 class="h2_tit">已售地块</h3>
+
+                    <table class="getLand_table getLand_table2">
+                        <thead>
+                            <tr>
+                                <td width="400">地块名</td>
+                                <td>用途</td>
+                                <td>楼板价(元/㎡)</td>
+                                <td>溢价率(%)</td>
+                                <td>竞得日期</td>
+                            </tr>
+                        </thead>
+                        <tbody ng-click="willFn($event)">
+                            <tr ng-repeat="p in getPlateData">
+                                <td ng-bind="p.plate_name" data-blockId="{{p.block_id}}" class="getLand_td2"></td>
+                                <td ng-bind="p.block_type"></td>
+                                <td ng-bind="p.jy_price"></td>
+                                <td ng-bind="p.premium_rate"></td>
+                                <td ng-bind="p.quote_date"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+
+            <ul class="tab_list same_tab_list" ng-click="tabFn($event)" id="wait">
+                <li class="active" data-val="{{getLandData.district_id}}">同区待推地块</li>
+                <li data-val='0'>同市待推地块</li>
+            </ul>
+            <ul class="same_tab_box">
+                <li>
+                    <table class="getLand_table getLand_table3">
+                        <thead>
+                        <tr>
+                            <td width="400">地块名</td>
+                            <td>区域</td>
+                            <td>用途</td>
+                            <td>面积
+                                <p>（万㎡）</p>
+                            </td>
+                            <td>竞价日期</td>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="will in getWillSellData" ng-click="willFn($event)">
+                            <td ng-cloak  data-blockId="{{will.block_id}}" class="getLand_td2">{{will.block_name}}{{will.plate_name}}</td>
+                            <td ng-bind="will.district_name"></td>
+                            <td ng-bind="will.block_type"></td>
+                            <td ng-bind="will.premium_rate"></td>
+                            <td ng-bind="will.quote_date"></td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+
+        </div>
+        <div class="contest_menu" ng-click="fnSet.scrollFn($event)">
+            <a data-id="base" class="active">&bull;&nbsp;基本信息</a>
+            <a data-id="data">&bull;&nbsp;板块数据</a>
+            <a data-id="wait">&bull;&nbsp;待推地块</a>
+
+        </div>
+    </div>
+</div>

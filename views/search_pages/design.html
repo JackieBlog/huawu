@@ -1,0 +1,47 @@
+<ul class="condition" ng-click="selectCond($event)">
+    <li ng-show="yearShow.show_one">
+
+        <span ng-if="ranking.isArea"
+              data-val="{{areaObj.districtId}}"
+              data-key="district_id"
+              ng-cloak
+        >{{areaObj.district}}</span>
+        <span ng-if="ranking.isArea"
+              data-val="{{areaObj.plateId}}"
+              data-key="plate_id"
+              ng-cloak
+        > {{areaObj.plate}}</span>
+
+
+        <i></i></li>
+    <li ng-show="yearShow.show_two">
+        <span ng-if="ranking.isAreaType" data-val="{{ranking.areaTypeId}}" data-key="area_type_id" ng-cloak>{{ranking.areaType}}</span>
+        <span ng-if="ranking.isPrice" data-val="{{ranking.rateId}}" data-key="volume_rate_id" ng-cloak>{{ranking.rate}}</span>
+        <i></i></li>
+</ul>
+
+<div class="get_land ranking">
+    <ul class="l_menu">
+
+        <li class="area">
+            区域
+            <div class="layer_area angle rankingArea" ng-click="areaFn($event)">
+                <a  ng-repeat="s in area" ng-bind="s.district_name" data-district="{{s.district_id}}" ui-sref-active="active"></a>
+                <ul ng-hide="plate" class="plate"></ul>
+            </div>
+        </li>
+        <li class="use">
+            容积率
+            <ul class="layer_use rankingUse designUse angle" ng-click="rateFn($event)">
+                <li ng-repeat="o in data.rate" data-typeId="{{o.id}}" ng-bind="o.value"></li>
+            </ul>
+        </li>
+        <li class="use">
+            面积段
+            <ul class="layer_use rankingUse2 angle" ng-click="areaTypeFn($event)">
+                <li ng-repeat="o in data.areaType" data-typeId="{{o.id}}" ng-bind="o.value"></li>
+            </ul>
+        </li>
+
+    </ul>
+</div>

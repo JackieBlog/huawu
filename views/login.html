@@ -1,0 +1,31 @@
+<style>
+    html,body{ height: 100%}
+    body{ position: relative;}
+</style>
+<div class="login">
+    <div class="logo"></div>
+    <div class="login_bg"></div>
+    <div class="login_box">
+        <h1>华屋决策用户登录</h1>
+        <form class="form-horizontal" role="form" id="custom_form" name="custom_form" ng-submit="processForm()">
+            <input multiple-email name="user_name" ng-blur="mesFn($event)" ng-model="user.name" required class="form-control" placeholder="请输入手机号/邮箱地址">
+            <input type="password" name="user_password" ng-model="user.password" required placeholder="请输入密码">
+            <p class="mark" ng-hide="mesHide"><span ng-hide="custom_form.user_name.$valid" ng-bind="mes"></span></p>
+            <p class="mark" ng-hide="mesHides" ng-bind="mes"></p>
+            <input class="btn_pw" type="submit"  value="登录">
+            <p class="auto_login"><span><label><input type="checkbox"> 自动登录</label></span> <a ui-sref="forget">忘记密码？</a></p>
+            <h2><a ui-sref="app.downLoad" target="_blank"><i></i>手机客户端【华屋决策】</a></h2>
+            <h3><i></i>客服热线：4008211358</h3>
+        </form>
+
+
+
+    </div>
+
+</div>
+
+<div class="login_footer">
+    <a ui-sref="page.data">数据说明</a>｜
+    <a ui-sref="page.about">关于我们</a>
+备案号沪ICP备12027578号-10
+</div>

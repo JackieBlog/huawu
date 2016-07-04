@@ -1,0 +1,47 @@
+
+//Base
+// -------------------------------
+$size-base:                       1px !default;
+$font-size-small:                 14px !default;
+$font-size-large:                 16px !default;
+$btn-bg-color:                    #59c2e6!default;
+$margin:                          0 auto !default;
+$before-border2:                  4px !default;
+$before-border-arr:               6px !default;
+
+// Colors
+// -------------------------------
+$color-base:                      #fff !default;
+$line_base:                       #d2d2d2 !default;
+$bg-color:                        #f0f3f6 !default;
+$header-bg-color:                 #5d6e7e !default;
+
+//Border
+// -------------------------------
+$border-base:                     $size-base solid $line_base;
+$border-search:                   $size-base solid #bbb;
+$before-border:                          6px !default;
+
+//mixin
+// -------------------------------
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin searchType($url){
+  background: url($url) no-repeat 10px 10px;
+}
+@mixin button($url){
+  display:block;  padding-left: 23px; width: 39px; height: 28px; background: $btn-bg-color url($url) no-repeat 8px 7px; line-height: 28px; color: #fff;
+  &:hover{ background: #63d5fc url($url) no-repeat 8px 7px;}
+  &:active{ background: #339abe url($url) no-repeat 8px 7px;}
+}
+@mixin baseBtn(){
+  @include button(""); padding: 2px 10px; text-align: center; display: inline-block; cursor: pointer;
+}
+@mixin trLine(){
+  tr:nth-child(2n+1){
+    background: #fbfbfb;
+  }
+}

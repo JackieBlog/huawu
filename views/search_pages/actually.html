@@ -1,0 +1,10 @@
+
+<div class="search_input actually_search"> 
+ <input type="text" placeholder="{{var.default}}" ng-disabled="isInputDisabled" ng-change="actuallyFn($event)" ng-model="actually">
+    <input type="submit" value=" " ng-class="{true: 'active'}[isActive]" ng-click="actBtn($event)">
+</div>
+<div class="actually">
+    <ul class="search_case" ng-show="act.show" ng-click="actHref($event)">
+        <li ng-repeat="data in actually_data" ng-bind="data.house_name" data-houseId="{{data.house_id}}"></li>
+    </ul>
+</div>

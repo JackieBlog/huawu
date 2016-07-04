@@ -1,0 +1,40 @@
+<div class="contest_bg attention_contest">
+    <div class="contest">
+        <div class="contest_info attentionContent">
+
+            <div class="contest_title">
+                <h1>我的关注</h1>
+            </div>
+            <p ng-hide="var.IsAtt" align="center" class="noLogin">请先
+                <span ui-sref="login">登录</span>
+            </p>
+            <div class="attention_box" ng-if="var.IsAtt">
+                <h1>
+                    <label><input type="checkbox" ng-change="allCheckFn()" ng-model="allCheck">全选</label>
+                    <span ng-click="cancelAllFn($event)">取消关注</span>
+                </h1>
+                <table class="getLand_table attention_table">
+                    <thead>
+                    <tr>
+                        <td>项目名称</td>
+                        <td>收藏时间</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                    <tbody ng-click="cancelFn($event)">
+                        <tr ng-repeat="i in attentionData">
+                            <td class="td_left">
+                                <label>
+                                    <input type="checkbox" class="checkBoxs" data-id="{{i.collect_id}}" data-ctType="{{i.collect_type}}">
+                                    <span ng-bind="i.name" ></span>
+                                </label>
+                            </td>
+                            <td ng-bind="i.add_date"></td>
+                            <td class="cancel" data-id="{{i.collect_id}}" data-type="{{i.collect_type}}">取消关注</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

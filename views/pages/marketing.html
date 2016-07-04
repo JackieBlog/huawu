@@ -1,0 +1,98 @@
+<div class="contest_bg ranking_contest">
+    <div class="contest">
+        <div class="contest_info ranking">
+            <div class="contest_title">
+                <h1>营销</h1>
+            </div>
+            <ul class="tab_box">
+                <li>
+                    <h1 class="tab_h1 ranking_h1">
+                        <span>已选标签 &nbsp ></span>
+                        <em ng-cloak ng-if="title.isIf1">{{title.if1}}</em>
+                        <em ng-cloak ng-if="title.isIf2">{{title.if2}}</em>
+                        <a href="http://www.88house.com.cn/test/pc_hwdeal_interface/excel_marketing_search/{{DLParams.district_id}}/{{DLParams.plate_id}}/{{DLParams.area_type_id}}/{{DLParams.monthly_selling_type_id}}/{{DLParams.total_price1}}/{{DLParams.total_price2}}/{{DLParams.DLOder}}/{{DLParams.to_date}}/{{DLParams.DLTime1}}/{{DLParams.DLTime2}}" target="_blank">下载</a>
+                    </h1>
+                    <!--{{DLParams.district_id}}/
+                    {{DLParams.plate_id}}/
+                    {{DLParams.area_type_id}}/
+                    {{DLParams.monthly_selling_type_id}}/
+                    {{DLParams.total_price1}}/
+                    {{DLParams.total_price2}}/
+                    {{DLParams.DLOder}}/
+                    {{DLParams.to_date}}/
+                    {{DLParams.DLTime1}}/
+                    {{DLParams.DLTime2}}-->
+
+                    <ul class="axis getLand_axis ranking_axis" ng-click="selectFn($event)">
+                        <li data-val="1" class="active">本月</li>
+                        <li data-val="2">3个月</li>
+                        <li data-val="3">6个月</li>
+                        <li data-val="4">自定义</li>
+                    </ul>
+                    <div class="dateLayer" ng-show="dateLayer" >
+                        <input type="date" name="user_date" ng-model="date.begin" /> -
+                        <input type="date" name="user_date" ng-model="date.ends" />
+                        <input type="submit" ng-click="dateFn()" class="dataBtn" />
+                    </div>
+
+                    <table class="getLand_table getLand_table3 ranking_table">
+                        <thead ng-click="oderFn($event)">
+                        <tr>
+                            <td>排名</td>
+                            <td>项目名称</td>
+                            <td>区域</td>
+                            <td>
+                                产品类型
+                            </td>
+                            <td>
+                                目前存量
+                                <p>（套）</p>
+                                <i class="arrow " data-key="1"></i>
+                            </td>
+                            <td>去化速度
+                                <p>（月/套）</p>
+                                <i class="arrow " data-key="2"></i>
+                            </td>
+                            <td>已售套数
+                                <i class="arrow " data-key="3"></i>
+                            </td>
+                            <td>已售面积
+                                <p>(㎡）</p>
+                                <i class="arrow " data-key="4"></i>
+                            </td>
+                            <td>
+                                已售金额
+                                <p>(亿元）</p>
+                                <i class="arrow" data-key="5"></i>
+                            </td>
+                            <td>成交均价
+                                <p>(元/㎡）</p>
+                                <i class="arrow " data-key="6"></i>
+                            </td>
+                            <td>操作</td>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="data in rankingData" ng-click="fnSet.attention($event)">
+                            <td width="80" ng-bind="data.order_num "></td>
+                            <td width="120" ng-bind="data.house_name"></td>
+                            <td ng-bind="data.district_name"></td>
+                            <td ng-bind="data.hosue_types"></td>
+                            <td ng-bind="data.sum_stock_count"></td>
+                            <td ng-bind="data.monthly_selling_count"></td>
+                            <td ng-bind="data.sell_count"></td>
+                            <td ng-bind="data.sum_area"></td>
+                            <td ng-bind="data.sum_total_price"></td>
+                            <td ng-bind="data.avg_price"></td>
+                            <td><a class="btn_atten attention" data-id="{{data.house_id}}" data-type="1">关注</a></td>
+                        </tr>
+                    </table>
+
+                    <tm-pagination conf="paginationConf"></tm-pagination>
+
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+</div>

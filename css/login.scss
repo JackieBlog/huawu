@@ -1,0 +1,35 @@
+.login{
+  position:absolute; top:50%; left:50%; margin: -304px 0 0 -445px;width: 890px;
+  > .login_bg{ margin-top: 116px; width: 501px; height: 262px; background: url(../images/login_bg.png) no-repeat;}
+  > .login_box{
+    position:absolute; top:116px; right:0; padding: 20px; width: 309px; height: 328px; border:$border-base;
+    > h1{ font-size: 24px; font-weight:bold; line-height:32px;}
+    > form{
+      > input{ margin-top: 12px; padding: 0 10px; width: 272px; height:38px; border:$border-base;}
+      > .btn_pw{ margin-top: 28px; border:none;width: 294px; height:40px; background:$btn-bg-color; color: #fff; font-size: 18px}
+      > .auto_login{ overflow: hidden; padding: 15px 0;
+          > span{
+            float:left;
+            > input{  margin:0 2px}
+          }
+          > a{float:right;}
+
+      }
+      > .mark{ position:absolute; top: 164px; padding-left:20px;background: url(../images/login_mark.png) no-repeat;}
+      > h2{
+        overflow: hidden; padding: 10px 0;  line-height: 24px;
+        > a{
+          display: block; color: #333;
+          > i{ display: block; margin:0 12px 0 3px; float:left; width: 14px; height:25px; background: url(../images/login_iocn1.png) no-repeat; line-height: 22px;}
+        }
+
+      }
+      > h3{
+        overflow: hidden; padding: 10px 0;
+        > i{ display: block; margin-right: 10px; float:left; width: 20px; height:16px; background: url(../images/login_iocn2.png) no-repeat;}
+      }
+
+    }
+
+  }
+}

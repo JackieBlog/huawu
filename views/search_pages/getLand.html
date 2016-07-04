@@ -1,0 +1,62 @@
+<ul class="condition" ng-click="selectCond($event)">
+    <li ng-show="yearShow.show_one" ng-cloak>{{types}}<i></i></li>
+    <li ng-show="yearShow.show_two" ng-cloak>{{areaObj.district}} {{areaObj.plate}} <i></i></li>
+    <li ng-show="yearShow.show_s" ng-cloak>{{year}}.{{month}} <i></i></li></ul>
+
+<div class="get_land">
+    <ul class="l_menu">
+        <li class="Ltime">
+            时间
+            <div class="layer_time angle">
+                <select ng-model="year" ng-change="change($event)">
+                    <option>2013</option>
+                    <option>2014</option>
+                    <option>2015</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                </select>
+                <select ng-model="month" ng-change="change($event)">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+
+            </div>
+        </li>
+        <li class="use">
+            用途
+            <ul class="layer_use angle" ng-click="typeFn($event)">
+                <li ng-repeat="o in type" data-typeId="{{o.id}}" ng-bind="o.value"></li>
+            </ul>
+        </li>
+        <li class="area">
+            区域
+            <div class="layer_area angle" ng-click="areaFn($event)">
+                <a  ng-repeat="s in area" ng-bind="s.district_name" data-district="{{s.district_id}}" ui-sref-active="active"></a>
+                <ul ng-hide="plate" class="plate"></ul>
+            </div>
+        </li>
+    </ul>
+
+
+
+
+
+    <ul class="r_scroll" ng-click="getLandFn($event)">
+        <li ng-repeat="item in infoList" data-blockId="{{item.block_id}}">
+            <span ng-bind="item.quote_date"></span>
+            <a ng-bind="item.block_name"></a>
+            <a ng-bind="item.plate_name"></a>
+        </li>
+
+    </ul>
+</div>

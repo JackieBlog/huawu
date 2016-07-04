@@ -1,0 +1,63 @@
+@mixin headerMenu($url,$left){
+  background: url($url) no-repeat $left 19px;
+  &:hover{
+    background: #40505f url($url) no-repeat $left 19px;
+  }
+}
+.header_bg{ background: $header-bg-color; }
+.header{
+   margin:0 auto; padding: 0 10px; width:1014px; height:50px;
+  > .user_menu{
+    position:relative;display:inline-block;  padding:0 35px;  height:50px; line-height: 50px; background: url(../images/header_user.png) no-repeat 15px 17px;
+    > a{ display: block; color:#fff;}
+    &:hover{
+      background: #40505f url(../images/header_user.png) no-repeat 15px 17px; cursor:pointer;
+      > ul{ display: block; }
+    }
+    > ul{
+      position: absolute;background: #fff;   top:50px; left:0;display: none; padding: 8px 0; width: 100%; @include box-shadow(0 1px 1px 1px #eee);
+      > li{
+        color:#4f5f6f; text-align: center; line-height: 30px;
+        &:hover{ color: #59c2e6; text-decoration: underline; cursor:pointer}
+      }
+    }
+  }
+  > .active{ background: #40505f url(../images/header_user.png) no-repeat 15px 17px;}
+  > .city{
+    display:inline-block; padding: 0 15px; color: #fff; cursor:pointer;
+    > i{ display: inline-block; margin-left: 5px; width: 7px; height: 5px; background: url(../images/header_icon.png) no-repeat; }
+    &:hover{
+      color:#59c2e6;
+      > i{ background: url(../images/header_icon_active.png) no-repeat;}
+    }
+    }
+
+  > .header_menu{
+    overflow:hidden; float:right;
+    >li{
+      float:left; padding: 0 20px 0 34px; height: 50px; line-height: 50px; color: #fff; cursor: pointer;
+      > a{ display:block; color: #fff;}
+      &:nth-child(1){ @include headerMenu('../images/header_menu1.png',11px);}
+      &:nth-child(2){
+        cursor:pointer; @include headerMenu('../images/header_menu2.png',10px);
+        &:hover{
+          > div{ display: block; background: #fff; }
+        }
+        > div{ position:absolute;display: none;margin-left: -34px; padding: 0 20px; height:32px; line-height: 32px;color: #333; @include box-shadow(0 1px 1px 1px #eee);}
+
+      }
+      &:nth-child(3){ @include headerMenu('../images/header_menu3.png',13px);}
+    }
+  }
+}
+.header_search_box{
+  margin-top: 50px; height:94px; @include box-shadow(0 1px 1px 1px #eee);
+  > .header_search{
+    margin:0 auto; padding: 15px 0;  width: 964px;
+    > .logo{ display: inline-block; margin-right: 70px;}
+    > .search{ display: inline-block; width: 658px;}
+
+  }
+
+}
+

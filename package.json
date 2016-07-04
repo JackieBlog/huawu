@@ -1,0 +1,16 @@
+{
+  "name": "huawu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "browser-sync start --server --files \"*.*\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular-bootstrap": "^0.12.2",
+    "bootstrap": "^3.3.6",
+    "browser-sync": "^2.10.0"
+  }
+}

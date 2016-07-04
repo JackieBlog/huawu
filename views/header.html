@@ -1,0 +1,20 @@
+<div class="header">
+    <div class="user_menu">
+        <a ui-sref="app.search.actually" ng-hide="var.loginState">欢迎您，<span ng-bind="userData.username"></span></a>
+        <a ui-sref="login" ng-if="var.loginState">请登录</a>
+        <ul ng-hide="var.loginState">
+            <li ui-sref="password">修改密码</li>
+            <li ng-click="fnSet.exitFn()">退出账号</li>
+        </ul>
+
+    </div>
+    <div class="city"><span>上海</span><i></i></div>
+
+    <ul class="header_menu">
+        <li ui-sref="page.attention">我的关注</li>
+        <li>客服电话
+            <div>4008211358</div>
+        </li>
+        <li><a  ui-sref="app.downLoad" target="_blank">移动客户端</a></li>
+    </ul>
+</div>

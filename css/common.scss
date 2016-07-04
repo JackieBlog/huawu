@@ -1,0 +1,141 @@
+.logo{
+  width: 210px;
+  height: 54px;
+  background: url('../images/logo.png') no-repeat;
+}
+.logo_big{
+  width: 270px;
+  height: 67px;
+  background: url('../images/logo_big.png') no-repeat;
+}
+.attention{ cursor: pointer; width: auto!important; padding: 0 10px;}
+.atten{ background: #bbb!important; padding: 0 10px!important; }
+.hide{ display: none!important;}
+
+.dateLayer{
+  position: absolute; margin-left: 450px; border:$border-base; padding: 10px;height: 30px; border-radius: 3px; background: #fff;    z-index: 99;
+  > input{ width: 130px;}
+  > .dataBtn{ border: none; background: $btn-bg-color; color: #fff; width: 40px; height: 20px; font-size: 12px;}
+  &:before{ position: absolute;
+    height: 0;
+    content: "";
+    display: block;
+    top: -11px;
+    left: 160px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px #ccc solid;
+
+  }
+  &:after{ position:absolute; height:0; content:"";display: block;  top:-10px; left:160px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px #fff solid;
+
+  }
+}
+
+.angle{
+  &:before{ position:absolute; height:0; content:"";display: block;  top:8px;   left:-4px;
+    border-top:$before-border solid transparent;
+    border-bottom:$before-border solid transparent;
+    border-right:4px #ccc solid;
+  }
+  &:after{ position:absolute; height:0; content:"";display: block;  top:8px;       left:-3px;
+    border-top:$before-border solid transparent;
+    border-bottom:$before-border solid transparent;
+    border-right:4px #fff solid;
+  }
+}
+.arrow{
+  position: absolute; display: block; cursor: pointer; width: 12px; height: 20px; top:19px; right:2px;
+  &:before{ position:absolute; height:0; content:"";display: block;  top:7px;   right:2px;
+    border-left:$before-border2 solid transparent;
+    border-right:$before-border2 solid transparent;
+    border-top:$before-border-arr #ccc solid;
+  }
+  &:after{ position:absolute; height:0; content:"";display: block;  top:0;  right:2px;
+    border-left:$before-border2 solid transparent;
+    border-right:$before-border2 solid transparent;
+    border-bottom:$before-border-arr #ccc solid;
+  }
+}
+.oderUp1{
+  &:before{
+    border-top-color:$btn-bg-color;
+  }
+}
+.oderDown0{
+  &:after{
+    border-bottom-color:$btn-bg-color;
+  }
+}
+.label_tit{
+  display: inline-block;  margin-left:10px; padding: 0 5px; background: #fff; height:21px; line-height: 21px; border:1px dotted  $btn-bg-color; color: $btn-bg-color; border-radius: 3px;
+  > i{
+    font-style:normal; font-size: 12px; float:right; margin-left: 5px; cursor: pointer;
+    &:before{
+      content: "\00D7";
+    }
+  }
+}
+.page-list{
+   position: relative;
+  margin: 40px 0;
+  float:right
+}
+.page-list .pagination {
+  float:left;
+  > li{
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #666;
+    text-decoration: none;
+    background-color: #fff;
+    cursor: pointer;
+    &:hover{ background: #eee}
+    &.active{ background: $btn-bg-color; color: #fff}
+  }
+}
+.page-list .pagination span {cursor: pointer;}
+.page-list .pagination .separate span{cursor: default; border-top:none;border-bottom:none;}
+.page-list .pagination .separate span:hover {background: none;}
+.page-list .page-total {float:left; margin: 5px 20px;}
+.page-list .page-total input, .page-list .page-total select{height: 26px; border: 1px solid #ddd;}
+.page-list .page-total input {width: 40px; padding-left:3px;}
+.page-list .page-total select {width: 50px;}
+
+
+.loading{ position: relative; width: 100%; height: 100%; }
+.spinner {
+  width: 60px;
+  height: 60px;
+  background-color: $btn-bg-color;
+
+  position: absolute;
+  top:50%; left:50%; margin: -30px 0 0 -30px;
+  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+  animation: rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
+      transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+    } 100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      }
+}
